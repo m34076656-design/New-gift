@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+*{box-sizing:border-box;font-family:'Playfair Display',serif}
+
+body{
+  margin:0;min-height:100vh;
+  display:flex;justify-content:center;align-items:center;
+  background:linear-gradient(120deg,#0f2027,#000);
+  overflow:hidden;color:#fff
+}
+
+.letter-bg::before{
+  content:'';position:fixed;inset:0;
+  background:radial-gradient(circle at top,rgba(255,150,200,.15),transparent),
+             radial-gradient(circle at bottom,rgba(150,200,255,.12),transparent);
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(-40px)}
+}
+
+.envelope{
+  width:340px;height:220px;
+  position:relative;
+}
+
+.flap{
+  position:absolute;top:0;left:0;
+  width:100%;height:100%;
+  background:#ff8fab;
+  clip-path:polygon(0 0,100% 0,50% 55%);
+  z-index:2;
+  animation: open 2s forwards;
+}
+
+@keyframes open{
+  to{transform:rotateX(180deg);opacity:0}
+}
+
+.letter{
+  position:absolute;inset:10px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  border-radius:14px;
+  padding:20px;text-align:center;
+  animation: rise 2s forwards;
+}
+
+@keyframes rise{
+  from{transform:translateY(60px);opacity:0}
+  to{transform:none;opacity:1}
+}
+
+button{
+  margin-top:15px;padding:10px 22px;
+  border:none;border-radius:25px;
+  background:linear-gradient(135deg,#ff4d6d,#ff758f);
+  color:white;font-size:1rem;cursor:pointer
+}
+
+.rose-page{
+  flex-direction:column;text-align:center
+}
+
+svg{width:180px;margin-bottom:20px}
+
+.quote{font-size:1.2rem;max-width:500px}
